@@ -10,7 +10,7 @@ public class MainTest {
 
     public static void main(String[] args) {
 
-        String[] files = new String[] { "mustang", "roadster" };
+        String[] files = new String[] {  };
         for(String file : files) {
             runCompress(file);
         }
