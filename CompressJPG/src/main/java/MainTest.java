@@ -17,7 +17,7 @@ public class MainTest {
     }
 
     private static void runCompress(String sourceFile) {
-        String resourcePath = new File("src/main/resources").getAbsolutePath();
+        String resourcePath = new File("src/main/resources/images").getAbsolutePath();
 
         File file = new File(resourcePath + File.separator + sourceFile + ".jpg");
         File fileResult = new File(resourcePath + File.separator + sourceFile + "_file.jpg");
