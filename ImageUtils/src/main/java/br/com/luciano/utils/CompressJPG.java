@@ -1,4 +1,4 @@
-package br.com.compressjpg;
+package br.com.luciano.utils;
 
 import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;

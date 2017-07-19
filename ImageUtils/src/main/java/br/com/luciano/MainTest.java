@@ -1,7 +1,7 @@
-import br.com.compressjpg.CompressJPG;
+package br.com.luciano;
+import br.com.luciano.utils.CompressJPG;
 
 import java.io.File;
-import java.net.URL;
 
 /**
  * Created by luciano on 13/07/17.
@@ -10,7 +10,7 @@ public class MainTest {
 
     public static void main(String[] args) {
 
-        String[] files = new String[] {  };
+        String[] files = new String[] { "mustang", "roadster" };
         for(String file : files) {
             runCompress(file);
         }
