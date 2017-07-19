@@ -1,5 +1,6 @@
 package br.com.luciano;
-import br.com.luciano.utils.CompressJPG;
+import br.com.luciano.utils.ColorsUtils;
+import br.com.luciano.utils.CompressJPGUtils;
 
 import java.io.File;
 
@@ -12,8 +13,17 @@ public class MainTest {
 
         String[] files = new String[] { "mustang", "roadster" };
         for(String file : files) {
-            runCompress(file);
+            //runCompress(file);
+            runBlackWhite(file);
         }
+    }
+
+    private static void runBlackWhite(String sourceFile) {
+        String resourcePath = new File("src/main/resources/images").getAbsolutePath();
+        File file = new File(resourcePath + File.separator + sourceFile + ".jpg");
+        File fileResult = new File(resourcePath + File.separator + sourceFile + "_bw.jpg");
+
+        ColorsUtils.blackOrWhite(file, fileResult);
     }
 
     private static void runCompress(String sourceFile) {
@@ -22,12 +32,11 @@ public class MainTest {
         File file = new File(resourcePath + File.separator + sourceFile + ".jpg");
         File fileResult = new File(resourcePath + File.separator + sourceFile + "_file.jpg");
 
-        byte[] fileByte = CompressJPG.convertFileByteArray(resourcePath + File.separator + sourceFile + ".jpg");
+        CompressJPGUtils.compressImageJpg(0.3f, file, fileResult);
 
-        CompressJPG.compressImageJpg(0.3f, file, fileResult);
-
-        byte[] resultado = CompressJPG.compressImageJpgByte(0.3f, fileByte);
-        CompressJPG.convertByteArrayFile(resultado, resourcePath + File.separator + sourceFile + "_byte.jpg");
+        byte[] fileByte = CompressJPGUtils.convertFileByteArray(resourcePath + File.separator + sourceFile + ".jpg");
+        byte[] resultado = CompressJPGUtils.compressImageJpgByte(0.3f, fileByte);
+        CompressJPGUtils.convertByteArrayFile(resultado, resourcePath + File.separator + sourceFile + "_byte.jpg");
     }
 
 }

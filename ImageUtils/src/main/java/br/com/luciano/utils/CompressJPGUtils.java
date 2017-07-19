@@ -12,7 +12,7 @@ import java.util.Iterator;
 /**
  * Created by luciano on 13/07/17.
  */
-public class CompressJPG {
+public class CompressJPGUtils {
 
     public static byte[] compressImageJpgByte(float imageQuality, byte[] source) {
         byte[] resultado = null;
@@ -52,13 +52,13 @@ public class CompressJPG {
     }
 
 
-    public static void compressImageJpg(float imageQuality, File imageFile, File compressedImageFile) {
+    public static void compressImageJpg(float imageQuality, File source, File result) {
         OutputStream outputStream = null;
         ImageOutputStream imageOutputStream = null;
         ImageWriter imageWriter = null;
 
         try {
-            outputStream = new FileOutputStream(compressedImageFile);
+            outputStream = new FileOutputStream(result);
 
             imageWriter = getImageWriterByFormatName("jpg");
             imageOutputStream = ImageIO.createImageOutputStream(outputStream);
@@ -69,7 +69,7 @@ public class CompressJPG {
             imageWriteParam.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
             imageWriteParam.setCompressionQuality(imageQuality);
 
-            imageWriter.write(null, new IIOImage(getBufferedImageFromFile(imageFile), null, null), imageWriteParam);
+            imageWriter.write(null, new IIOImage(getBufferedImageFromFile(source), null, null), imageWriteParam);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -149,6 +149,7 @@ public class CompressJPG {
         } finally {
             try {
                 inputStream.close();
+                bufferedImage.flush();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -170,6 +171,7 @@ public class CompressJPG {
         } finally {
             try {
                 inputStream.close();
+                bufferedImage.flush();
             } catch (IOException e) {
                 e.printStackTrace();
             }
