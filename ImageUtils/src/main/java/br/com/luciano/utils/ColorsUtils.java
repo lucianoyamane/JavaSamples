@@ -2,11 +2,7 @@ package br.com.luciano.utils;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.color.ColorSpace;
 import java.awt.image.BufferedImage;
-import java.awt.image.ColorConvertOp;
-import java.awt.image.RescaleOp;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 

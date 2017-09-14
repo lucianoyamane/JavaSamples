@@ -1,6 +1,7 @@
 package br.com.luciano;
 import br.com.luciano.utils.ColorsUtils;
 import br.com.luciano.utils.CompressJPGUtils;
+import org.imgscalr.Scalr;
 
 import java.io.File;
 
@@ -10,12 +11,20 @@ import java.io.File;
 public class MainTest {
 
     public static void main(String[] args) {
-
         String[] files = new String[] { "mustang", "roadster" };
         for(String file : files) {
-            //runCompress(file);
+            runCompress(file);
             runBlackWhite(file);
+            runResizeScalr(file);
         }
+    }
+
+    private static void runResizeScalr(String sourceFile) {
+        String resourcePath = new File("src/main/resources/images").getAbsolutePath();
+        File file = new File(resourcePath + File.separator + sourceFile + ".jpg");
+        File fileResult = new File(resourcePath + File.separator + sourceFile + "_scalr.jpg");
+
+        ScalrTests.resizeImage(file, fileResult);
     }
 
     private static void runBlackWhite(String sourceFile) {
