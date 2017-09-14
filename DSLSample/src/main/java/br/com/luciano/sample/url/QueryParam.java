@@ -1,6 +1,7 @@
 package br.com.luciano.sample.url;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class QueryParam extends CompositeBuilder {
@@ -25,8 +26,12 @@ public class QueryParam extends CompositeBuilder {
         StringBuilder queryParamBuilder = new StringBuilder();
         if (this.leafBuilders.size() > 0) {
             queryParamBuilder.append("?");
-            for(LeafBuilder leafBuilder : this.leafBuilders) {
-                queryParamBuilder.append(leafBuilder.toString());
+            Iterator<LeafBuilder> builderIterator = this.leafBuilders.iterator();
+            while(builderIterator.hasNext()) {
+                queryParamBuilder.append(builderIterator.next().toString());
+                if (builderIterator.hasNext()) {
+                    queryParamBuilder.append("&");
+                }
             }
         }
         return queryParamBuilder.toString();
