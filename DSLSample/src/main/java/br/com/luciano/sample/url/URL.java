@@ -9,9 +9,8 @@ import br.com.luciano.sample.url.value.SchemeValue;
 public class URL extends CompositeBuilder {
 
     private SchemeValue schemeValue;
-    private Boolean www;
-    private String dominio;
-    private String subDominio;
+    private Host host;
+
 
     private URL() {
 
@@ -31,18 +30,21 @@ public class URL extends CompositeBuilder {
         return this;
     }
 
-    public URL www() {
-        this.www = Boolean.TRUE;
+    public URL host(Host host) {
+        this.host = host;
         return this;
     }
 
-    public URL dominio(String dominio) {
-        this.dominio = dominio;
-        return this;
-    }
 
-    public URL subDominio(String subDominio) {
-        this.subDominio = subDominio;
-        return this;
+    @Override
+    public String toString() {
+        StringBuilder urlStringBuilder = new StringBuilder();
+        if (this.schemeValue != null) {
+            urlStringBuilder.append(this.schemeValue.toString());
+        }
+        if (this.host != null) {
+            urlStringBuilder.append(this.host.toString());
+        }
+        return urlStringBuilder.toString();
     }
 }

@@ -9,13 +9,17 @@ public enum SchemeValue {
 
     private String valor;
 
-    private SchemeValue(String valor) {
+    private final static String SEPARATOR = "://";
+
+    SchemeValue(String valor) {
         this.valor = valor;
     }
 
     @Override
     public String toString() {
-        return this.valor;
+        return new StringBuilder(this.valor)
+                .append(SEPARATOR)
+                .toString();
     }
 
 }

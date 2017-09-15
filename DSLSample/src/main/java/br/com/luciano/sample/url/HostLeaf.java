@@ -16,12 +16,12 @@ public class HostLeaf extends LeafBuilder {
         return new HostLeaf();
     }
 
-    public HostLeaf add(HostValue hostValue) {
+    public final HostLeaf add(HostValue hostValue) {
         this.hostValue = hostValue;
         return this;
     }
 
-    public HostLeaf add(String hostText) {
+    public final HostLeaf add(String hostText) {
         this.hostText = hostText;
         return this;
     }
