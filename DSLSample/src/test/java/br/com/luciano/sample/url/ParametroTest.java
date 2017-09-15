@@ -15,8 +15,8 @@ public class ParametroTest {
 
     @Test
     public void testEstruturaBasicaCampoValor() {
-        String esperado = "campo='valor'";
-        String resultado = parametro.adiciona("campo", "valor").toString();
+        String esperado = "campo='value'";
+        String resultado = parametro.adiciona("campo", "value").toString();
 
         Assert.assertEquals(esperado, resultado);
     }
@@ -31,8 +31,8 @@ public class ParametroTest {
 
     @Test
     public void testEstruturaBasicaCampo() {
-        String esperado = "valor";
-        String resultado = parametro.adiciona("valor").toString();
+        String esperado = "value";
+        String resultado = parametro.adiciona("value").toString();
 
         Assert.assertEquals(esperado, resultado);
 

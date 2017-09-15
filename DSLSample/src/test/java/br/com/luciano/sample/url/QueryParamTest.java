@@ -16,17 +16,17 @@ public class QueryParamTest {
 
     @Test
     public void testAdicionaParametro() {
-        String esperado = "?campo='valor'";
-        String resultado = this.queryParam.adiciona("campo", "valor").toString();
+        String esperado = "?campo='value'";
+        String resultado = this.queryParam.adiciona("campo", "value").toString();
 
         Assert.assertEquals(esperado, resultado);
     }
 
     @Test
     public void testAdicionaDoisParametro() {
-        String esperado = "?campo='valor'&campo2='valor2'";
+        String esperado = "?campo='value'&campo2='valor2'";
         String resultado = this.queryParam
-                                    .adiciona("campo", "valor")
+                                    .adiciona("campo", "value")
                                     .adiciona("campo2", "valor2")
                                     .toString();
 

@@ -1,10 +1,17 @@
 package br.com.luciano.sample.url;
 
+import br.com.luciano.sample.url.value.SchemeValue;
+
+/**
+ * <scheme></>://<host>:<port>/<path>?<searchpart>
+ *
+ */
 public class URL extends CompositeBuilder {
 
-    private String protocolo;
-    private String www;
+    private SchemeValue schemeValue;
+    private Boolean www;
     private String dominio;
+    private String subDominio;
 
     private URL() {
 
@@ -15,22 +22,27 @@ public class URL extends CompositeBuilder {
     }
 
     public URL http() {
-        this.protocolo = "http://";
+        this.schemeValue = SchemeValue.HTTP;
         return this;
     }
 
     public URL https() {
-        this.protocolo = "https://";
+        this.schemeValue = SchemeValue.HTTPS;
         return this;
     }
 
     public URL www() {
-        this.protocolo = "www";
+        this.www = Boolean.TRUE;
         return this;
     }
 
     public URL dominio(String dominio) {
         this.dominio = dominio;
+        return this;
+    }
+
+    public URL subDominio(String subDominio) {
+        this.subDominio = subDominio;
         return this;
     }
 }

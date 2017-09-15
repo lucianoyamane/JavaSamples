@@ -15,17 +15,17 @@ public class PathParamTest {
 
     @Test
     public void testEstruturaBasica() {
-        String esperado = "/valor";
-        String resultado = this.pathParam.adiciona("valor").toString();
+        String esperado = "/value";
+        String resultado = this.pathParam.adiciona("value").toString();
 
         Assert.assertEquals(esperado, resultado);
     }
 
     @Test
     public void testEstruturaBasicaDoisParametros() {
-        String esperado = "/valor/valor2";
+        String esperado = "/value/valor2";
         String resultado = this.pathParam
-                                .adiciona("valor")
+                                .adiciona("value")
                                 .adiciona("valor2")
                                 .toString();
 
