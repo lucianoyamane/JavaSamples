@@ -1,5 +1,6 @@
 package br.com.luciano.sample.url;
 
+import br.com.luciano.sample.url.value.HostValue;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -58,6 +59,20 @@ public class URLTest {
                 .http();
 
         String expected = "http://www.domain";
+        String resultado = this.url.toString();
+        Assert.assertEquals(expected, resultado);
+    }
+
+    @Test
+    public void testSubDomain() {
+        url
+            .http()
+            .host(Host.init()
+                        .www()
+                        .domain("domain")
+                        .subDomain(HostValue.COM));
+
+        String expected = "http://www.domain.com";
         String resultado = this.url.toString();
         Assert.assertEquals(expected, resultado);
     }
