@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class DecisaoTest {
+public class DecisionTest {
 
     private Decision decision;
 
