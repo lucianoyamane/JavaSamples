@@ -1,6 +1,5 @@
 package br.com.luciano.sample.url.dsl;
 
-import br.com.luciano.sample.url.QueryParam;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +14,7 @@ public class DecisionTest {
     }
 
     @Test
-    public void testDoIt() {
+    public void testDoItString() {
 
         decision.when(1 == 1).doIt("true").otherwise("false");
         String resultado = decision.toString();
@@ -23,9 +22,23 @@ public class DecisionTest {
     }
 
     @Test
-    public void testOtherWise() {
+    public void testOtherWiseString() {
         decision.when(1 == 2).doIt("true").otherwise("false");
         String resultado = decision.toString();
         Assert.assertEquals("false", resultado);
+    }
+
+    @Test
+    public void testOnlyDoItTrue() {
+        decision.when(1 == 1).doIt("true");
+        String resultado = decision.toString();
+        Assert.assertEquals("true", resultado);
+    }
+
+    @Test
+    public void testOnlyDoItFalse() {
+        decision.when(1 == 2).doIt("true");
+        String resultado = decision.toString();
+        Assert.assertNull(resultado);
     }
 }
