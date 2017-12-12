@@ -1,6 +1,9 @@
+### IntelliJ IDEA ###
 .idea
-.directory
+*.iws
 *.iml
+*.ipr
+.directory
 
-images/
+lib/
 target/
