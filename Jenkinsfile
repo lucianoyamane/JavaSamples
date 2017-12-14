@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Git') {
       steps {
-        git(url: 'https://github.com/lucianoyamane/JavaSamples', changelog: true)
+        git(url: 'https://github.com/lucianoyamane/JavaSamples', branch: 'master', changelog: true)
       }
     }
   }
